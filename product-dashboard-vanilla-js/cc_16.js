@@ -64,10 +64,15 @@ function fetchProductsThen() {
       container.appendChild(productDiv);
     });
   }
-  console.log('****Display products in the DOM with name, price, and image****');
+console.log('****Display products in the DOM with name, price, and image****');
 
 // Task 5: Reusable Error Handler
   function handleError(error) {
     console.error("An error occurred:", error.message);
   }
+console.log('****Add reusable handleError function');
 
+// Task 6: Call Your Fetch Functions
+fetchProductsThen();
+fetchProductsAsync();
+console.log('****Trigger both fetch methods at script load');
