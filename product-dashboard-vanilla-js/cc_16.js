@@ -22,7 +22,7 @@ function fetchProductsThen() {
   fetchProductsThen();
   console.log('****Implement fetchProductsThen using .then() and .catch()****');
 
-  // Task 3: Fetch Products with async/await
+// Task 3: Fetch Products with async/await
   async function fetchProductsAsync() {
     try {
       const response = await fetch('https://www.course-api.com/javascript-store-products');
@@ -43,4 +43,26 @@ function fetchProductsThen() {
   fetchProductsAsync();
   console.log('****Add fetchProductsAsync using async/await and try/catch****');
 
+ // Task 4: Display the Products
+ function displayProducts(products) {
+    const container = document.getElementById('product-container');
+    container.innerHTML = ''; 
+
+    const topFive = products.slice(0, 5);
+    topFive.forEach((product) => {
+      const { name, price, image } = product.fields;
   
+      const productDiv = document.createElement('div');
+      productDiv.className = 'product';
+
+      productDiv.innerHTML = `
+      <h2>${name}</h2>
+      <p>$${(price / 100).toFixed(2)}</p>
+      <img src="${image[0].url}" alt="${name}" />
+    `;
+  
+      container.appendChild(productDiv);
+    });
+  }
+  console.log('****Display products in the DOM with name, price, and image****');
+
